@@ -2,6 +2,7 @@ package com.sks.solr;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.impl.CloudSolrClient;
@@ -12,10 +13,9 @@ public class SolrJClient {
 	
 	private SolrJClient() {
 		List<String> zkHosts=new ArrayList<String>();  
-		zkHosts.add("192.168.204.181:2181");    
-		zkHosts.add(",192.168.204.182:2181");
-		zkHosts.add("192.168.204.183:2181");
-		_solrClient = new CloudSolrClient.Builder(zkHosts).build();
+		zkHosts.add("zmc-zookeeper:2181");
+		Optional<String> empty = Optional.empty();
+		_solrClient = new CloudSolrClient.Builder(zkHosts,empty).build();
 	};
 	
 	private static SolrJClient _instance;
