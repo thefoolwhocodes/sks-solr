@@ -8,7 +8,7 @@ public class solr
         System.out.println("sks - Solr demonstrator started!");
         try {
             SolrOperations.indexDocument();
-            SolrOperations.searchDocument();
+            SolrOperations.searchDocument("101");
             SolrOperations.searchDocuments();
             SolrOperations.deleteDocumentById();
             SolrOperations.deleteDocumentByQuery();
